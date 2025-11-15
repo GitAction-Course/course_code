@@ -21,21 +21,20 @@ jobs:
                 echo $GitHUB_REPOSITORY
                 echo $GitHUB_ACTOR
                 echo $GitHUB_WORKFLOW
-
+                       
     workflow_commands_windows:          
         runs-on: windows-latest
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: windows commands
+            - name: Python shell 
               run: |
-                dir
-                mkdir new_folder
-                
-            - name: Github Details
-              run: |
-                echo $GitHUB_REPOSITORY
+                python  -version 
+                python --version
+                pip --version
+                pip list
+                pip show flask            
 
 
 
