@@ -1,0 +1,19 @@
+name: Repository Events
+on:
+    pull_request:
+        types: [opened, synchronize, reopened, assigned]
+    issues:
+        types: [opened]
+
+jobs:
+    checkout-tes:
+        runs-on: ubuntu-latest
+        steps:
+            # $GITHUB_SHA holds the commit SHA that triggered the workflow
+            # $GITHUB_REF holds the branch or tag ref that triggered the workflow
+
+            - name: checkout repo
+              run: |
+                echo $GITHUB_SHA
+                echo $GITHUB_REF
+            - uses: actions/checkout@v3
