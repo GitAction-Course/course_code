@@ -1,7 +1,7 @@
 name: Repository Events
-on: 
-    push:
-        types: [opened, synchronize, reopened,assigned]
+on:
+    pull_request:
+        types: [opened, synchronize, reopened, assigned]
     issues:
         types: [opened]
 
