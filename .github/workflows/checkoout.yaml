@@ -13,7 +13,7 @@ jobs:
                 ls -a
 
             - name: Checkout using Javascript_Actions
-              uses: actions/checkout@v3
+              uses: actions/checkout@v2
 
             - name: List file After 
               run: |    
