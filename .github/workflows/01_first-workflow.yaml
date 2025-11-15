@@ -35,13 +35,6 @@ jobs:
           run: powershell "Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion"      
 
 
-
-
-
-
-
-
-
 # if you want to skip the action runs, you can add [skip ci] or [ci skip] in your commit message
 # variables and securets can be used for more complex workflows
  
