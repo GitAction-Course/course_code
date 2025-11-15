@@ -5,8 +5,6 @@ jobs:
     testing-wf-commands:
         runs-on: ubuntu-latest
         steps:
-            - name: Setting an error message 
-              run: echo "::error file=app.js,line=10,col=15::Syntax error detected"
             - name: Setting error message with parms
               run: echo "::error title:Error title,file:app.js"
             - name: Setting a warning message
