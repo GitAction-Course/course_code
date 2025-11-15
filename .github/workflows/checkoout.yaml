@@ -5,7 +5,7 @@ defaults:
     shell: bash
 
 jobs:
-    Javascript_Actions:
+    checkout-action:
         runs-on: unbuntu-latest
         steps:
             - name : List file Before 
@@ -13,7 +13,7 @@ jobs:
                 ls -a
 
             - name: Checkout using Javascript_Actions
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: List file After 
               run: |    
