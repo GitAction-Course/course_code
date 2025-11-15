@@ -7,5 +7,6 @@ jobs:
         steps:
             - name: Setting an error message 
               run: echo "::error file=app.js,line=10,col=15::Syntax error detected"
-
+            - name: Setting error message with parms
+              run: echo "::error title:Error title,file:app.js"
               
