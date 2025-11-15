@@ -6,7 +6,7 @@ defaults:
 
 jobs:
     checkout-action:
-        runs-on: unbuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - name : List file Before 
               run: | 
