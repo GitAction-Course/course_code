@@ -5,6 +5,20 @@ defaults:
     shell: bash
 
 jobs:
+    Javascript_Actions:
+        runs-on: unbuntu-latest
+        steps:
+            - name : List file Before 
+              run: | 
+                ls -a
+
+            - name: Checkout using Javascript_Actions
+              uses: actions/checkout@v3
+
+            - name: List file After 
+              run: |    
+                ls -a   
+
     checkout_and_display_file:
         runs-on: ubuntu-latest
         steps:
