@@ -9,4 +9,21 @@ jobs:
               run: echo "::error file=app.js,line=10,col=15::Syntax error detected"
             - name: Setting error message with parms
               run: echo "::error title:Error title,file:app.js"
-              
+            - name: Setting a warning message
+              run: echo "::warning file=app.js,line=20,col=5::Deprecated function used"
+            - name: Setting a notice message
+              run: echo "::notice file=app.js,line=30,col=10::Consider ref
+            - name: Setting debug message
+              run: echo "::debug file=app.js,line=40,col=20::Variable x is undefined"
+            - name: Grouping logs
+              run: |
+                echo "::group::Starting complex operation"
+                echo "Step 1 completed"
+                echo "Step 2 completed"
+                echo "::endgroup::"
+            - name: masked secrets
+              run: Maksing |
+                echo "::add-mask::my_secret_value"
+                echo "The secret value is my_secret_value"
+            - name: missing space after hyphen
+              run: echo "This step has a syntax issue" 
