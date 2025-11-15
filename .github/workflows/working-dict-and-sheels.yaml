@@ -15,7 +15,7 @@ jobs:
                 ls -la
                 ls -l
                 mkdir new_folder
-                rm file.txt #
+                
             - name: Github Details
               run: | 
                 echo $GitHUB_REPOSITORY
