@@ -1,0 +1,42 @@
+name: Workflow Commands
+# This workflow runs on every push to the repository
+on: [push]
+
+jobs:
+    Workflow_Commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: unbutu commands
+              run: |
+                echo "This is a sample Ubuntu command"
+                ls -la
+                ls -l
+                mkdir new_folder
+                rm file.txt #
+            - name: Github Details
+              run: | 
+                echo $GitHUB_REPOSITORY
+                echo $GitHUB_ACTOR
+                echo $GitHUB_WORKFLOW
+
+    workflow_commands_windows:          
+        runs-on: windows-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: windows commands
+              run: |
+                windows commands
+                dir
+                mkdir new_folder
+                del file.txt
+            - name: Github Details
+              run: |
+                echo $GitHUB_REPOSITORY
+
+
+
