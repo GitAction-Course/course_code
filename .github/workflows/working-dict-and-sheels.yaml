@@ -15,7 +15,7 @@ jobs:
                 ls -la
                 ls -l
                 mkdir new_folder
-                
+
             - name: Github Details
               run: | 
                 echo $GitHUB_REPOSITORY
@@ -30,10 +30,9 @@ jobs:
 
             - name: windows commands
               run: |
-                windows commands
                 dir
                 mkdir new_folder
-                del file.txt
+                
             - name: Github Details
               run: |
                 echo $GitHUB_REPOSITORY
