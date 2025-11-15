@@ -18,13 +18,13 @@ jobs:
             # secrets.GITHUB_TOKEN is a default secret that provides a token to authenticate on behalf of GitHub Actions
             # GITHUB_REPOSITORY.git is a default variable that holds the repository name in the format "owner/repo"
 
-            - name: Push changes
-              run: |
-                git config --global user.name "${{ github.actor }}"
-                git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-                git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            - name: Checkout
+              run: | 
+                git init
+                git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
                 git fetch origin
-                git push origin main
+                git checkout -f main
+
                
             - name: List file After 
               run: |    
