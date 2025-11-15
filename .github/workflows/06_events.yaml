@@ -1,9 +1,11 @@
 name: Repository Events
 on:
+    # Events that trigger the workflow
+    push:
     pull_request:
         types: [opened, synchronize, reopened, assigned]
     issues:
-        types: [opened]
+        types: [opened, closed]
 
 jobs:
     checkout-tes:
