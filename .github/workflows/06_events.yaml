@@ -7,6 +7,7 @@ jobs:
         steps:
             # $GITHUB_SHA holds the commit SHA that triggered the workflow
             # $GITHUB_REF holds the branch or tag ref that triggered the workflow
+            
             - name: checkout repo
               run: |
                 echo $GITHUB_SHA
