@@ -8,13 +8,16 @@ jobs:
     pr-comments:
         runs-on: ubuntu-latest
         steps:
-            - name: JavaScript Action checkout
+            - name: JavaScript Action checkout1
               uses: actions/github-script@v6
               with:
                 script: |
-                    octokit.rest.issues.createComment({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    issue_number: context.payload.pull_request.number,
-                    body: "Thank you for your pull request! We will review it shortly."
-                    });
+                        github.rest.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.payload.pull_request.number,
+                        body: "Thank you for your pull request! We will review it shortly."
+                        });
+
+
+# we need to provide permissions to access the actions/github-script action actions=> general => read and write premissions
