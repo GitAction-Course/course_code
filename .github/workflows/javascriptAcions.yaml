@@ -1,0 +1,16 @@
+name: Javascript Actions
+on: [push]
+
+
+jobs:
+    Javascript_Actions:
+        runs-on: ubuntu-latest
+        steps:
+            - name : Action Checkout 
+              id: checkout
+              uses: actions/hello-world-javascript-action@ebdda30dcb464fa90dc49c837d7b5506f49932d0
+              with:
+               who-to-greet: 'JavaScript Action'
+
+            - name: Show Output
+              run: echo "${{ steps.checkout.outputs.time }}"            
