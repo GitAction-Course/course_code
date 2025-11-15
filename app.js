@@ -1,3 +1,3 @@
-alert('Okay')
 alert('hi')
+alert('okay')
 alert('hello')
