@@ -1,0 +1,34 @@
+name: Filter Branches, Tags, and Paths
+
+on:
+    push:
+        branches:
+            - main 
+            - */release/*
+            - */release/**
+        tags:
+            - 'v*.*.*'
+            - 'release-*'
+        paths:
+            - '**.js'
+            - '!Readme.md'
+        # bracnches and branches-ignore are mutually exclusive we need use one of it at a time 
+        # branches-ignore:
+        #     - 'dependabot/**'
+        #     - 'docs/**'
+    pull_request:
+        branches:
+            - main
+        paths:
+            - 'src/**'
+            - '!Redme.md'
+        types: [opened, synchronize, reopened, closed]
+    issues:
+        types: [opened, edited]
+
+jobs:
+    filter-branches-tags-and-paths:
+        runs-on: ubuntu-latest
+        steps:
+            - name : Displau Event info 
+              run: echo "Workflow filtered by branches, tags, and paths"
