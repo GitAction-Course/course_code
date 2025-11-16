@@ -1,0 +1,41 @@
+name: Manually Trigger Workflow
+
+on:
+    workflow_dispatch:
+        inputs:
+            String:
+                description: 'A sample string input'
+                type: string
+                required: true
+                
+            integer:
+                description: 'A sample integer input'
+                type: integer
+                required: false
+                default: 42
+            boolean:
+                description: 'A sample boolean input'
+                type: boolean
+                required: false
+                default: true
+            option:
+                description: 'A sample option input'
+                type: choice
+                required: false
+                default: 'option1'
+                options:
+                    - option1
+                    - option2
+                    - option3
+
+
+jobs:
+    log-inputs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Log Inputs
+              run: |
+                echo "String input: ${{ github.event.inputs.String }}"
+                echo "Integer input: ${{ github.event.inputs.integer }}"
+                echo "Boolean input: ${{ github.event.inputs.boolean }}"
+                echo "Option input: ${{ github.event.inputs.option }}"
