@@ -1,9 +1,8 @@
 name: Repository Events
 on:
-    # Events that trigger the workflow
     push:
     pull_request:
-        types: [opened, synchronize, reopened, assigned]
+        types: [opened, synchronize, reopened, assigned,created, edited, closed, unlabeled, labeled, unlocked, ready_for_review, locked, review_requested, review_request_removed   ]
     issues:
         types: [opened, closed]
 
