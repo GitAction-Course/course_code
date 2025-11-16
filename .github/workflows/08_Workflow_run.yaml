@@ -1,0 +1,13 @@
+name: Workflow run 
+
+on:
+  workflow_run:
+    workflows: ["Repository Events"]
+    types: [completed]
+
+jobs:
+    echo-message:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo a message
+              run: echo "The Pull Request Comments workflow has completed."
