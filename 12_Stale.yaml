@@ -1,0 +1,26 @@
+name: Stale Issue & PR 
+on:
+    schedule:
+        - cron: '0 0 * * 0'  # Runs every Sunday at midnight
+        - cron: '0/5 * * * *' # Runs every 5 minutes for testing purposes
+    # Note: The more frequent schedule is for testing; adjust as needed.
+        # cron syntax: 'min hour day month day-of-week'
+
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Stale Action
+              uses: actions/stale@v4
+              with:
+                repo-token: "${{ secrets.GITHUB_TOKEN }}"
+                stale-issue-message: "This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs."
+                stale-pr-message: "This pull request has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs."
+                days-before-stale: 30
+                days-before-close: 7
+                exempt-issue-labels: "pinned,important"
+                exempt-pr-labels: "pinned,important"
+                only-labels: "bug,enhancement"
+
+# Stale Means that issues and PRs that have had no activity for 30 days will be marked as stale with a message. If there is still no activity for another 7 days, they will be closed. Issues and PRs with the labels "pinned" or "important" will be exempt from this process, as well as those labeled "bug" or "enhancement".
+# days-before-stale and days-before-close can be adjusted as needed.
