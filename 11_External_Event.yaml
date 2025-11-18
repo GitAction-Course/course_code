@@ -1,0 +1,13 @@
+name: External Event 
+on:
+    repository_dispatch:
+        types: [build]
+      
+
+jobs:
+    handle-external-event: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Log External Event
+              run: |
+                echo "External event received!"
