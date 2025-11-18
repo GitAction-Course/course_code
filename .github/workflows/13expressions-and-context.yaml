@@ -17,4 +17,6 @@ jobs:
             
             - name: contexts
               run: |
-                echo ${{ toJson(github)}}
+                echo ${{ runner}}
+                echo ${{steps}}
+                echo ${{job}}
