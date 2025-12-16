@@ -1,0 +1,20 @@
+name: Time out and continue on error
+on: [push]
+
+jobs:
+    timeout-and-continue-on-error:
+        runs-on: ubuntu-latest
+        steps:
+         - name: Step with timeout
+           run: |
+            echo "This step will time out after 5 seconds"
+            sleep 10
+           timeout-minutes: 0.1  # 6 seconds
+         - name: Continue on error step
+           run: |
+            echo "This step will fail but the job will continue"
+            exit 1
+           continue-on-error: true
+         - name: Final Step
+           run: echo "Previous steps failed, but this step still runs."
+           if: failure()
