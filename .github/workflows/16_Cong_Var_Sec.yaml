@@ -1,0 +1,22 @@
+name: Variables ans Secrets
+on: [push]
+
+jobs:
+    log-vars-and-secrets:
+        runs-on: ubuntu-latest
+        steps:
+         - name: Log a variable
+           run: echo "The value of MY_VAR is ${{ vars.ACTIONS_STEP }}"
+         - name: Log a secret
+           run: echo "The value of MY_SECRET is ${{ secrets.ACTIONS_RUNNER_DEBUG }}"
+         - name: Set a variable
+           env:
+            MY_SecRET: ${{ secrets.ACTIONS_RUNNER_DEBUG }}
+            MY_VAR: ${{ vars.ACTIONS_STEP }}
+           run: |   
+            echo "MY_NEW_VAR=Prefix_$MY_VAR" >> "$GITHUB_ENV"
+            echo "MY_NEW_SECRET=Prefix_$MY_SecRET" >> "$GITHUB_ENV"
+         - name: Log the new variable and secret
+           run: |
+            echo "The value of MY_NEW_VAR is $MY_NEW_VAR"
+            echo "The value of MY_NEW_SECRET is $MY_NEW_SECRET"

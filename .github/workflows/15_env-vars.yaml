@@ -15,7 +15,20 @@ jobs:
          - name: Log Env Var
            run: echo $GITHUB_REF
          - name: Log Context
-           run: echo '${{ github.ref}}'
+           run: echo '${{ github.ref }}'
+         - name: Set Env Var 
+           run: |
+            echo "NEW_ENV_VAR=$(date)" >> "$GITHUB_ENV"
+            echo "JOB_ENV_LEVEL=$RANDOM" >> "GITHUB_ENV"
+         - name: Multline Env Var 
+           run: |
+            # this should be unique all the time
+            DELIMITER=1234    
+            echo "RANDOM_JOKE<<$DELIMITER" >> "GITHUB_ENV"
+            echo "Here is a joke: " >> "GITHUB_ENV"
+            curl -s https://icanhazdadjoke.com/ >> "GITHUB_ENV"
+            echo "" >> "GITHUB_ENV"
+            echo "DELIMITER" >> "GITHUB_ENV"
          - name: Log to Custom Env vars
            env:
                 STEP_LEVEL_ENV: Avilable to nly this step 
@@ -25,5 +38,3 @@ jobs:
             echo Env_Job_Level
             echo ENV_Var
          
-
-  
