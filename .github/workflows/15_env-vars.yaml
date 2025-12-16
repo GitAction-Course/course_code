@@ -1,0 +1,29 @@
+name: Env Variable 
+on: [push]
+
+env: 
+    ENV_Var: Available to all the jobs 
+
+
+jobs:
+    env-vars-and-context:
+        runs-on: ubuntu-latest
+        if : github.ref == 'refs/heads/main'
+        env:
+            Env_Job_Level: Aviable to this job 
+        steps: 
+         - name: Log Env Var
+           run: echo $GITHUB_REF
+         - name: Log Context
+           run: echo '${{ github.ref}}'
+         - name: Log to Custom Env vars
+           env:
+                STEP_LEVEL_ENV: Avilable to nly this step 
+           run: |
+            echo '${{ env.STEP_LEVEL_ENV}}'
+            echo $STEP_LEVEL_ENV
+            echo Env_Job_Level
+            echo ENV_Var
+         
+
+  
