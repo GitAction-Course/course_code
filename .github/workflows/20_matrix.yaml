@@ -13,21 +13,10 @@ jobs:
                   - node-version: 12
                     os: ubuntu-latest
                     experimental: true
-                  - node-version: 16
-                    os: macos-latest
-                    experimental: False
-                  - node-version: 14
-                    os: windows-latest  
-                    experimental: true
                 exclude:
-                  - node-version: 12
-                    os: windows-latest 
-                  - node-version: 16
-                    os: ubuntu-latest
                   - node-version: 14
-                    os: macos-latest
-
-            fail-fast: false
+                    os: windows-latest
+            fail-fast: true
         steps:
          - name: Checkout code
            uses: actions/checkout@v3
@@ -37,3 +26,7 @@ jobs:
             node-version: ${{ matrix.node-version }}
          - name: Install dependencies
            run: echo "Installing dependencies on ${{ matrix.os }} with Node.js ${{ matrix.node-version }}"
+
+
+
+# matrix example with include and exclude keywords
