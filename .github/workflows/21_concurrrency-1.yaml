@@ -1,0 +1,19 @@
+name: Concurrency 1
+on: 
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: 'Select the environment to run the workflow in'
+                required: true
+                default: 'staging'
+                type: choice
+                options:
+                    - staging
+                    - production
+
+concurrency: Concurrency-1
+jobs:
+    sleep: 
+        runs-on: ubuntu-latest
+        steps:
+            - run: sleep 10

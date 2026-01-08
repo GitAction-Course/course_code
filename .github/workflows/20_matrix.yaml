@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
     build:
-        continue-on-error: true
+        continue-on-error: ${{ matrix.experimental || false }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -13,6 +13,7 @@ jobs:
                   - node-version: 12
                     os: ubuntu-latest
                     experimental: true
+                # Exclude a specific combination from the matrix windowas 14 will not execute
                 exclude:
                   - node-version: 14
                     os: windows-latest
