@@ -1,4 +1,5 @@
 name: Concurrency 1
+run-name: concurrency 1 ({{ inputs.environment }})
 on: 
     workflow_dispatch:
         inputs:
@@ -11,9 +12,14 @@ on:
                     - staging
                     - production
 
-concurrency: Concurrency-1
+concurrency:
+    group: $ {{ github.event.inputs.environment }}
+    cancel-in-progress: true
 jobs:
     sleep: 
         runs-on: ubuntu-latest
         steps:
             - run: sleep 10
+
+       
+# this concurrecy example cancels any in-progress runs when a new run is triggered
